@@ -24,7 +24,7 @@ object either:
   extension [A, B](listEithers: List[Either[A, B]])
     /** Partitions a list of [[Either]]s into either of lists.
       *
-      * If there is at least of [[Left]] in the original list, this function returns a [[Left]] with
+      * If there is at least one [[Left]] in the original list, this function returns a [[Left]] with
       * all unwrapped left values. If there is no [[Left]]s in the original list, returns [[Right]]
       * with all unwrapped right values.
       */
