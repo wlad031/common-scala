@@ -31,3 +31,10 @@ object either:
     def partitionToEither: Either[List[A], List[B]] = listEithers.partition(_.isLeft) match
       case (Nil, rights) => Right(rights.map(_.asInstanceOf[Right[?, B]].value))
       case (lefts, _)    => Left(lefts.map(_.asInstanceOf[Left[A, ?]].value))
+
+extension [A](list: List[Option[A]]) {
+
+  /** Filters out all [[None]] values from the list and unwraps all [[Some]] values. */
+  def filterNonEmpty: List[A] = list.filter(_.isDefined).map(_.get)
+}
+
